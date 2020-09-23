@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+// The unused classes purgeCSS should ignore when env is production
+// Add the whitelisted selectors between ignore comments
+
+/*! purgecss start ignore */
+@import "components/buttons";
+
+body {
+  @apply bg-black text-white;
+}
+/*! purgecss end ignore */
+
+@import "tailwindcss/utilities";
