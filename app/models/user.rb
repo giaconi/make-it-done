@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :lists
+  has_many :tasks
 
   validates :username, presence: true
   validates :username, uniqueness: true
