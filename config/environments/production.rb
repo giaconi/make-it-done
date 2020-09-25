@@ -1,8 +1,21 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   
-  # Default URL for Devise mailer, to be filled at deployment
+  # Mailer settings for Devise mailer
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  
+  config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+      port:          587,
+      address:       'smtp.gmail.com',
+      user_name:      ENV['SENDMAIL_USERNAME'],
+      password:       ENV['SENDMAIL_PASSWORD'],
+      authentication: :plain,
+      enable_starttls_auto: true
+  }
   
   # Code is not reloaded between requests.
   config.cache_classes = true
