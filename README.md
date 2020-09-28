@@ -9,3 +9,6 @@ Using:
       React 16.13.1
 
       Tailwindcss 1.8.10
+
+
+...to be updated
