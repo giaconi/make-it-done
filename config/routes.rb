@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
   devise_for :users
+  authenticated :user do
+    root 'pages#home', as: :authenticated_root
+  end
   root 'pages#home'
-  get 'pages/todo_lists'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

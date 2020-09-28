@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= render "shared/navigation" %>
+    <%= render "shared/navigation" unless !user_signed_in?%>
     <%= yield %>
     <%= render "shared/flash" %>
   </body>
