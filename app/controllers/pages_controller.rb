@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def index
   end
 
-  def todo_lists
-  end
 end
