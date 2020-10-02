@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
-  def index
+  skip_before_action :authenticate_user!, only: [ :home ]
+
+  def home
+  end
+
+  def lists
   end
 
 end
