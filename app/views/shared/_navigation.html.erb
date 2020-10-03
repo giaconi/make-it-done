@@ -1,4 +1,4 @@
-<nav class="bg-gray-800">
+<nav class='bg-white shadow'>
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -6,7 +6,7 @@
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <div class="hidden sm:block sm:ml-6">
           <div class="flex">
-            <a href="#" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
+            <a href="#" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gunmetal focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
           </div>
         </div>
       </div>
@@ -17,7 +17,7 @@
           <% unless !user_signed_in?%>
             <div>
               <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
-                <img class="h-8 w-8 rounded-full" src=<%= "https://eu.ui-avatars.com/api/?name=#{current_user.first_name}+#{current_user.last_name}" %>>
+                <img class="h-10 w-10 rounded-full" src=<%= "https://avatar.oxro.io/avatar.svg?name=#{current_user.first_name}+#{current_user.last_name}&background=2c363f&color=fffffa" %>>
               </button>
             </div>
           <% end %>
