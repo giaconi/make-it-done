@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Link } from 'react';
 import axios from 'axios'
 import List from '../List/List'
 
@@ -19,20 +19,20 @@ const Lists = () => {
   },
     [lists.length]
   )
-  const list = lists.map( item => {
-    return (
-      <List
-        key={item.attributes.title}
-        attributes={item.attributes}
-      />
-    )
-  })
+
   return (
-     <Fragment>
-     <div> Homepage and the dashboard. View for lists.
-      {list}
+    <div>
+      
+        <p>Homepage and the dashboard. View for lists containing tasks.</p>
+          {lists.map((card) => {
+            const url = `/lists/${card.attributes.slug}`;
+            return (
+                <h3 className='card'>{card.attributes.title}</h3>
+            )
+          })
+          }
+      
      </div>
-     </Fragment>
   )
 }
 
