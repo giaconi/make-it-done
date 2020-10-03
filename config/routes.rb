@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'pages#index', as: :authenticated_root
   end
-  root 'pages#index'
+  root 'pages#home'
 
   namespace :api do
     namespace :v1 do
@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 end
 
   get '*path', to: 'pages#lists', via: :all
+  get '/lists' => 'pages#lists', as: :user_root
 end
