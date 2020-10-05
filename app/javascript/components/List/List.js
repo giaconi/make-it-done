@@ -6,34 +6,34 @@ const List = (props) => {
   const [listName, setlistName] = useState("");
   const [listsArray, setlistsArray] = useState([]);
 
-  const url = `/api/v1${props.history.location.pathname}`;
-
   useEffect(() => {
+    const slug = props.match.params.slug
+    const url = `/api/v1/lists/${slug}`
+    
     axios
       .get(url)
       .then((response) => {
-        console.log(response)
         setlistName(response.data.data.attributes.title);
         setlistsArray(response.data.included);
       })
       .catch((response) => console.log(response));
-  }, []);
+    }, []);
 
   return (
-    <div>
+    <div className="list_card">
       <Link to={'/lists'}>
-        <p>Back</p>
+        <div className="navigation">X</div>
       </Link>
-      <h2>{listName}</h2>
+      <div className="list_name">{listName}</div>
       <div>
-        {listsArray.map((card) => {
+        {listsArray.map((card, i) => {
           return (
-            <div>
-              <h3>{card.attributes.description}</h3>
-              <h3>{
+            <div className="task" key={i}>
+              <div className="task_title">{card.attributes.description}</div>
+              <div className="task_completion">{
                 (card.attributes.done) ? "done" : 'not done'
-              }</h3>
-              <h3>duration: {card.attributes.duration} minutes</h3>
+              }</div>
+              <div className="task_duration">duration: {card.attributes.duration} minutes</div>
             </div>
         );})}
       </div>
