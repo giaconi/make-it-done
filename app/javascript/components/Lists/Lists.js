@@ -1,13 +1,13 @@
-import React, { useState, useEffect, Link } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios'
-import List from '../List/List'
+import List from './List'
 
 const Lists = () => {
   const [lists, setLists] = useState([])
 
   useEffect (()=> {
     // Get all lists from API
-    // Update lists in our state
+    // Update lists in the state
 
     axios.get('api/v1/lists.json')
     .then( response => {
@@ -20,19 +20,19 @@ const Lists = () => {
     [lists.length]
   )
 
+  const grid = lists.map( item => {
+    return (
+      <List 
+        key={item.attributes.title}
+        attributes={item.attributes}
+      />
+    )
+  })
+
   return (
-    <div>
-      
-        <p>Homepage and the dashboard. View for lists containing tasks.</p>
-          {lists.map((card) => {
-            const url = `/lists/${card.attributes.slug}`;
-            return (
-                <h3 className='card'>{card.attributes.title}</h3>
-            )
-          })
-          }
-      
-     </div>
+    <div className="home">
+      <div className="grid">{grid}</div>
+    </div>
   )
 }
 
