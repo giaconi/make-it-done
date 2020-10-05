@@ -1,4 +1,4 @@
-A to-do list that I need: simple, organised and easy to use.
+A simple to-do list that is simple and easy to use.
 
 Using:
       
