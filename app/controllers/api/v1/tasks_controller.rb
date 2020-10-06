@@ -1,8 +1,12 @@
 module Api
   module V1
-    class ListsController < ApplicationController
+    class TasksController < ApplicationController
+
       def create
-        task = current_user.tasks.new(task_params)
+        description = task_params[:description]
+        duration = task_params[:duration]
+        list_id = task_params[:list_id]
+        task = Task.new(description: description, duration: duration, list_id: list_id)
 
         if task.save
           render json: serializer(task)
@@ -11,7 +15,7 @@ module Api
         end
       end
 
-      # DELETE /api/v1/tasks/:id
+      # DELETE /api/v1/list/tasks/:id
       def destroy
         task = current_user.tasks.find(params[:id])
 
@@ -26,12 +30,12 @@ module Api
 
       # Strong params
       def task_params
-        params.require(:task).permit(:description, :done, :duration, :list_id)
+        params.require(:task).permit(:description, :duration, :list_id)
       end
 
       # fast_jsonapi serializer
       def serializer(records, options = {})
-        taskSerializer
+        TaskSerializer
           .new(records, options)
           .serialized_json
       end
@@ -39,7 +43,6 @@ module Api
       def errors(record)
         { errors: record.errors.messages }
       end
-      
     end
   end
 end
