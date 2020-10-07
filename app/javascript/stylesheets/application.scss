@@ -5,11 +5,8 @@
 // Add the whitelisted selectors between ignore comments
 
 /*! purgecss start ignore */
-@import "components/buttons";
+@import "components/backgrounds";
 
-body {
-  @apply bg-white text-black;
-}
 /*! purgecss end ignore */
 
 @import "tailwindcss/utilities";

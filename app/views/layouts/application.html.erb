@@ -10,8 +10,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render "shared/navigation" %>
+  <body class="body_background">
+    <%= render "shared/navigation" unless !user_signed_in?%>
     <%= yield %>
     <%= render "shared/flash" %>
   </body>

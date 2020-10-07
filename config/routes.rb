@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  authenticated :user do
+    root 'pages#index', as: :authenticated_root
+  end
   root 'pages#home'
-  get 'pages/todo_lists'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    namespace :v1 do
+      resources :lists, param: :slug, only: [:index, :show, :update, :destroy]
+      resources :tasks, only: [:show, :create, :update, :destroy]
+    end
+end
+
+  get '*path', to: 'pages#lists', via: :all
+  get '/lists' => 'pages#lists', as: :user_root
 end
