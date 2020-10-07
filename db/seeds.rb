@@ -4,11 +4,39 @@
 
 lists = List.create([
   {
-    title: "Shopping",
+    title: "Talks I'd like to attend",
     user: User.first
   },
   {
-    title: "Study",
+    title: "Projects to be done in the future",
+    user: User.first
+  },
+  {
+    title: "Peoples to chat with",
+    user: User.first
+  },
+  {
+    title: "Movies to see this weekend",
+    user: User.first
+  },
+  {
+    title: "Reads from articles to check",
+    user: User.first
+  },
+  {
+    title: "Websites to sign-up",
+    user: User.first
+  },
+  {
+    title: "Books to order",
+    user: User.first
+  },
+  {
+    title: "Food to cook",
+    user: User.first
+  },
+  {
+    title: "Clean stuff in the house",
     user: User.first
   }
 ])
@@ -22,15 +50,13 @@ tasks = Task.create ([
   },
   {
     description: "Carrots",
-    done: false,
     duration: 1,
-    list: lists.first
+    list: lists.second
   },
   {
     description: "Apples",
-    done: true,
     duration: 1,
-    list: lists.first
-  },
+    list: lists.last
+  }
 
 ])

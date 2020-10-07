@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :lists, param: :slug, only: [:index, :show, :update, :destroy]
-      resources :tasks, param: :slug, only: [:show, :create, :update, :destroy]
-  end
+      resources :tasks, only: [:show, :create, :update, :destroy]
+    end
 end
 
   get '*path', to: 'pages#lists', via: :all

@@ -1,23 +1,53 @@
 import React, {useEffect, useState} from 'react'
 import { BrowserRouter as Router, Link } from  'react-router-dom'
-import axios from "axios";
+import axios from 'axios';
+import TaskForm from'../Lists/TaskForm'
 
 const List = (props) => {
-  const [listName, setlistName] = useState("");
-  const [listsArray, setlistsArray] = useState([]);
+  const [listName, setlistName] = useState('');
+  const [list, setList] = useState({});
+  const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState({});
+  const [list_id, setListId] = useState('');
+
+  const slug = props.match.params.slug;
+  const postUrl = `/api/v1/tasks`;
+  const getUrl = `/api/v1/lists/${slug}`;
 
   useEffect(() => {
-    const slug = props.match.params.slug
-    const url = `/api/v1/lists/${slug}`
     
     axios
-      .get(url)
+      .get(getUrl)
       .then((response) => {
         setlistName(response.data.data.attributes.title);
-        setlistsArray(response.data.included);
+        setList(response.data.data.attributes);
+        setTasks(response.data.included);
+        setListId(response.data.data.id);
+        console.log(response.data.data.id);
       })
       .catch((response) => console.log(response));
     }, []);
+
+    
+  const handleChange = (e) => {
+    e.preventDefault();
+    // console.log('name:', e.target.name, 'value:', e.target.value)
+    setTask(Object.assign({}, task, {[e.target.name]: e.target.value, list_id}))
+    // console.log('task:', task, list_id)
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post(postUrl, {
+      task,
+      list_id
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+  };
+
 
   return (
     <div className="list_card">
@@ -26,7 +56,7 @@ const List = (props) => {
       </Link>
       <div className="list_name">{listName}</div>
       <div>
-        {listsArray.map((card, i) => {
+        {tasks.map((card, i) => {
           return (
             <div className="task" key={i}>
               <div className="task_title">{card.attributes.description}</div>
@@ -37,6 +67,12 @@ const List = (props) => {
             </div>
         );})}
       </div>
+      <TaskForm
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        attributes={list}
+        task={task}
+      />
     </div>
   );
 }
