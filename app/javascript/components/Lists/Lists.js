@@ -57,7 +57,7 @@ const Lists = (props) => {
   });
 
   return (
-    <div className="home">
+    <div className="home content-end">
       <div className="grid">
         <ul className="list_card">{grid}</ul>
       </div>

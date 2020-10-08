@@ -15,7 +15,7 @@ module Api
       end
 
       def create
-        list = List.new(list_params)
+        list = List.new(title: list_params[:title], user_id: current_user.id)
 
         if list.save
           render json: ListSerializer.new(list).serialized_json
