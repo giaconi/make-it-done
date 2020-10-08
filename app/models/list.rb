@@ -4,6 +4,7 @@ class List < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   validates :title, uniqueness: true
+  validates :title, presence: true
 
   before_create :slugify
 
