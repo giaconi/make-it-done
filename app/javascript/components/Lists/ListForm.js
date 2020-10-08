@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListForm = (props) => {
   return (
-    <div className="form_wrapper">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg items-center bg-gray-200 px-6 pt-4 pb-2 m-8">
       <form onSubmit={props.handleSubmit}>
         <div>Add list</div>
         <div className="field">

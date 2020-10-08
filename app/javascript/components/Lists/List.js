@@ -9,7 +9,7 @@ const List = (props) => {
 
   return (
     <Link to={"/lists/" + props.attributes.slug}>
-      <div className="card">
+      <div className="max-w-sm rounded m-8 ml-10 bg-gray-300 p-3 shadow-lg">
         <div className="list_title">
           {props.attributes.title}
         </div>

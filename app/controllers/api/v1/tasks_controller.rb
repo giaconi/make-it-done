@@ -12,7 +12,18 @@ module Api
         end
       end
 
+      def update
+        task = current_user.tasks.find(params[:id])
+
+        if task.update(task_params)
+          render json: serializer(task)
+        else
+          render json: errors(task), status: 422
+        end
+      end
+
       # DELETE /api/v1/list/tasks/:id
+      #  Not necessary as I'll update the state to done and then it will go the end of list
       def destroy
         task = current_user.tasks.find(params[:id])
 
@@ -27,7 +38,7 @@ module Api
 
       # Strong params
       def task_params
-        params.require(:task).permit(:description, :duration, :list_id)
+        params.require(:task).permit(:description, :duration, :list_id, :id, :done)
       end
 
       # fast_jsonapi serializer

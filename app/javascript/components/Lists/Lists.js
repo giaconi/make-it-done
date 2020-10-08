@@ -57,9 +57,9 @@ const Lists = (props) => {
   });
 
   return (
-    <div className="home content-end">
-      <div className="grid">
-        <ul className="list_card">{grid}</ul>
+    <div className="flex flex-row">
+      <div className="row-span-1">
+        <div className="grid">{grid}</div>
       </div>
         <ListForm
           handleChange={handleChange}
