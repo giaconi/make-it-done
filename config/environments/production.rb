@@ -4,15 +4,15 @@ Rails.application.configure do
   # Mailer settings for Devise mailer
   config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.default_url_options = { host: "https://make-it-done-jorj.herokuapp.com" }
   
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
       port:          587,
       address:       'smtp.gmail.com',
-      user_name:      ENV['SENDMAIL_USERNAME'],
-      password:       ENV['SENDMAIL_PASSWORD'],
+      user_name:      ENV['GNAME'],
+      password:       ENV['GKEY'],
       authentication: :plain,
       enable_starttls_auto: true
   }
