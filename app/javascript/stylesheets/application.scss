@@ -1,12 +1,9 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-
 // The unused classes purgeCSS should ignore when env is production
 // Add the whitelisted selectors between ignore comments
 
 /*! purgecss start ignore */
 @import "components/backgrounds";
-
-/*! purgecss end ignore */
-
+@import "tailwindcss/base";
+@import "tailwindcss/components";
 @import "tailwindcss/utilities";
+/*! purgecss end ignore */
