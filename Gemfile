@@ -15,6 +15,8 @@ gem 'devise'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# Use FontAwesome for icons
+gem 'font-awesome-sass'
 # Simple form
 gem 'simple_form'
 # JSON Serializer

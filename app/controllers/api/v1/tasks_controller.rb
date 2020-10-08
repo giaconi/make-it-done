@@ -3,10 +3,7 @@ module Api
     class TasksController < ApplicationController
 
       def create
-        description = task_params[:description]
-        duration = task_params[:duration]
-        list_id = task_params[:list_id]
-        task = Task.new(description: description, duration: duration, list_id: list_id)
+        task = Task.new(task_params)
 
         if task.save
           render json: serializer(task)

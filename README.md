@@ -1,6 +1,6 @@
-A simple to-do list that is simple and easy to use.
+A simple to-do list that's simple, organised and easy to use.
 
-Using:
+Built with:
       
       Ruby 2.6.6
 
