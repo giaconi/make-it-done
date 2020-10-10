@@ -19,6 +19,8 @@ gem 'sass-rails', '>= 6'
 gem 'font-awesome-sass'
 # Simple form
 gem 'simple_form'
+# Bootstrap for simple_form styling
+gem 'bootstrap', '~> 4.5.2'
 # JSON Serializer
 gem 'fast_jsonapi'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
