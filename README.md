@@ -1,4 +1,4 @@
-A simple to-do list that's simple, organised and easy to use.
+A simple task management app (a.k.a. to-do list) that's simple, organised and easy to use.
 
 Built with:
       
