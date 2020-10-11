@@ -8,21 +8,12 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 const List = (props) => {
 
   return (
-    <Link to={"/lists/" + props.attributes.slug}>
-      <div className="max-w-sm rounded m-8 ml-10 bg-gray-300 p-3 shadow-lg">
-        <div className="list_title">
-          {props.attributes.title}
-        </div>
-        <div className="last_added">
-          Latest task added at 12:30, on 12/09
-        </div>
-        <div className="total_tasks">
-          You have completed 15 out of 22 total tasks.
-        </div>
-        <div className="list_title">
-          Total required time to complete all: 108 min.
-        </div>
-        <div className="link">
+    <Link to={"/lists/" + props.attributes.slug} className="text-decoration-none">
+      <div className="card text-white bg-dark mb-3" style={{float : 'max-width: 18rem'}}>
+        <div className="card-header">Header</div>
+        <div className="card-body">
+          <h5 className="card-title">Dark card title</h5>
+          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
     </Link>

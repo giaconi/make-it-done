@@ -57,15 +57,13 @@ const Lists = (props) => {
   });
 
   return (
-    <div className="flex flex-row">
-      <div className="row-span-1">
-        <div className="grid">{grid}</div>
-      </div>
-        <ListForm
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          list={list}
-        />
+    <div className="container">
+      <ListForm
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        list={list}
+      />
+      <div className="sticky">{grid}</div>
     </div>
   )
 }

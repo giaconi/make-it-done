@@ -55,7 +55,7 @@ const List = (props) => {
   };
 
   return (
-    <div className="list_card">
+    <div className="container">
       <Link to={'/lists'}>
         <div className="navigation"><i className="fas fa-backspace"></i></div>
       </Link>
