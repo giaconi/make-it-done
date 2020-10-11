@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   authenticated :user do
-    root 'pages#index', as: :authenticated_root
+    root 'pages#home', as: :authenticated_root
   end
   root 'pages#home'
 
