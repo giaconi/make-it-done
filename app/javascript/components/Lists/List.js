@@ -6,14 +6,17 @@ import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 const List = (props) => {
+  // const taskNumber = props.included;
+  // console.log(taskNumber);
+  // let countTaskNumber = Object.keys(taskNumber).length;
 
   return (
     <Link to={"/lists/" + props.attributes.slug} className="text-decoration-none">
       <div className="card text-white bg-dark mb-3" style={{float : 'max-width: 18rem'}}>
-        <div className="card-header">Header</div>
+        <div className="card-header">{props.attributes.title}</div>
         <div className="card-body">
-          <h5 className="card-title">Dark card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 className="card-title">You have {22} tasks in this list.</h5>
+          <p className="card-text">last added: yesterday</p>
         </div>
       </div>
     </Link>

@@ -63,7 +63,11 @@ const Lists = (props) => {
         handleSubmit={handleSubmit}
         list={list}
       />
-      <div className="sticky">{grid}</div>
+      <div className="card-columns">
+        
+         {grid}
+
+      </div>
     </div>
   )
 }
