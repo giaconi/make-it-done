@@ -1,2 +1,25 @@
 
 
+      <div className="list_name">{listName}</div>
+        {tasks.map((card, i) => {
+          return (
+            <div className="task" key={i}>
+              <div className="task_title">{card.attributes.description}</div>
+              <div className="task_completion">{ (card.attributes.done) ? "done" : 'not done' }
+              </div>
+              <div className="task_duration">duration: {card.attributes.duration} minutes</div>
+              <button className="complete-btn"><i className="fas fa-check"></i></button>
+            </div>
+        );})}
+
+<div class="notification">
+  <img src="https://avatar.oxro.io/avatar.svg?name={{card.attributes.duration}}&background=545454&color=fffffa" class="avatar-large" >
+  <div class="notification-content">
+    <p><small>14th January</small></p>
+    <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit.</p>
+  </div>
+  <div class="notification-actions">
+    <button>Edit <i className="fas fa-pencil-alt"></i></button>
+    <button>Complete <i className="fas fa-check"></i></button>
+  </div>
+</div>

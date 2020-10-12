@@ -60,7 +60,6 @@ const List = (props) => {
         <div className="navigation"><i className="fas fa-backspace"></i></div>
       </Link>
       <div className="list_name">{listName}</div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-white">
         {tasks.map((card, i) => {
           return (
             <div className="task" key={i}>
@@ -71,7 +70,6 @@ const List = (props) => {
               <button className="complete-btn"><i className="fas fa-check"></i></button>
             </div>
         );})}
-      </div>
       <TaskForm
         handleChange={handleChange}
         handleSubmit={handleSubmit}
