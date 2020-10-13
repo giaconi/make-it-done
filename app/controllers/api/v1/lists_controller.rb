@@ -3,7 +3,7 @@ module Api
     class ListsController < ApplicationController
 
       def index
-        lists = current_user.lists.order('created_at ASC')
+        lists = current_user.lists.order('created_at DESC')
 
         render json: ListSerializer.new(lists, options).serialized_json
       end

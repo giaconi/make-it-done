@@ -22,7 +22,7 @@
   font-weight: bold;
 }
 .notification .notification-actions {
-  opacity: 0;
+  opacity: 0.5;
   display: flex;
   transition: ease .3s;
 }
@@ -32,11 +32,13 @@
 }
 
 .notification .notification-actions button {
-  color: #999999;
-  margin-left: 16px;
-  font-size: 14px;
+  color:  #32383e;
+  margin-right: 16px;
+  font-size: 25px;
 }
 
-.notification .notification-actions button:hover {
-  color: #555555;
+.notification img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
 }

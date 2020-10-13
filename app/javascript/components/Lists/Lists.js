@@ -58,11 +58,13 @@ const Lists = (props) => {
 
   return (
     <div className="container">
-      <ListForm
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        list={list}
-      />
+      <div className="row justify-content-center mb-5">
+        <ListForm
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          list={list}
+        />
+      </div>
       <div className="card-columns">
         
          {grid}

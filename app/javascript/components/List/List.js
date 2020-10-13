@@ -60,22 +60,25 @@ const List = (props) => {
         <div className="navigation"><i className="fas fa-backspace"></i></div>
       </Link>
       <div className="list_name">{listName}</div>
+        <TaskForm
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          attributes={list}
+          task={task}
+        />
         {tasks.map((card, i) => {
           return (
-            <div className="task" key={i}>
-              <div className="task_title">{card.attributes.description}</div>
-              <div className="task_completion">{ (card.attributes.done) ? "done" : 'not done' }
-              </div>
-              <div className="task_duration">duration: {card.attributes.duration} minutes</div>
-              <button className="complete-btn"><i className="fas fa-check"></i></button>
-            </div>
+              <div className="notification" key={i}>
+                <img src={`https://avatar.oxro.io/avatar.svg?name=${card.attributes.duration}&background=545454&color=fffffa`}/>
+                <div className="notification-content">
+                  <p><small>{card.attributes.created_at}</small></p>
+                  <p>{card.attributes.description}</p>
+                </div>
+                <div className="notification-actions">
+                  <button><i className="fas fa-check"></i></button>
+                </div>
+              </div>          
         );})}
-      <TaskForm
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        attributes={list}
-        task={task}
-      />
     </div>
   );
 }

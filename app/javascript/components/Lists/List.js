@@ -15,8 +15,8 @@ const List = (props) => {
       <div className="card text-white bg-dark mb-3" style={{float : 'max-width: 18rem'}}>
         <div className="card-header">{props.attributes.title}</div>
         <div className="card-body">
-          <h5 className="card-title">You have {22} tasks in this list.</h5>
-          <p className="card-text">last added: yesterday</p>
+          <h5 className="card-title"> <strong>[add value]</strong> tasks in this list.</h5>
+          <p className="card-text text-yellow-300 hover:text-yellow-600">last added: <strong>[add value]</strong></p>
         </div>
       </div>
     </Link>
