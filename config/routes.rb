@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  # authenticated :user do
-  #   root 'pages#lists', as: :authenticated_root
-  # end
+  authenticated :user do
+    root 'pages#lists', as: :authenticated_root
+  end
   root 'pages#home'
 
   namespace :api do
@@ -14,6 +14,5 @@ Rails.application.routes.draw do
     end
 end
 
-  get '*path', to: 'pages#lists', via: :all
   get '/lists' => 'pages#lists', as: :user_root
 end
