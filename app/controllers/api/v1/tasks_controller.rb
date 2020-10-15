@@ -13,7 +13,7 @@ module Api
       end
 
       def update
-        task = current_user.tasks.find(params[:id])
+        task = Task.find(params[:id])
 
         if task.update(task_params)
           render json: serializer(task)
