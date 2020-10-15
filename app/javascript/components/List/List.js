@@ -47,7 +47,7 @@ const List = (props) => {
       const taskItem = response.data.data.attributes;
       setTasks([...tasks, {attributes: taskItem}]); 
       // console.log(task)
-      // setTask({description: '', duration: ''})
+      setTask({description: '', duration: ''})
       console.log('set state:', tasks)
     })
     .catch(response => {
@@ -55,6 +55,7 @@ const List = (props) => {
     });
   };
   console.log('check state outside useEffect', tasks)
+
 
   const handleComplete = (e) => {
 
@@ -70,17 +71,11 @@ const List = (props) => {
       // find and assign here the item from response in the initial state
       const index = tasks.find(element => element.id === e);
       console.log('the found index:', index)
-
       console.log('tasks before splice:', tasks)
+
       // replace the found item with the updated item from response
       setTasks(tasks.splice(index, 1, todo))
-
       console.log('tasks after splice:', tasks)
-
-      // set the new state with the updated array
-      // setTasks({ ...tasks, todo })
-
-      console.log('tasks after update:', tasks)
     })
     .catch(response => {
       console.log(response);
