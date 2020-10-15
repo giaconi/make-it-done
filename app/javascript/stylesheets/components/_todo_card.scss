@@ -4,12 +4,12 @@
   margin-bottom: 8px;
   background: white;
   padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
+  border: 1px solid #ffde59;
 }
 
 .notification .notification-content {
   flex-grow: 1;
-  padding: 0 24px;
+  padding: 0 14px;
 }
 
 .notification p {
@@ -32,13 +32,30 @@
 }
 
 .notification .notification-actions button {
-  color:  #32383e;
+  color: #ffc108;
   margin-right: 16px;
   font-size: 25px;
 }
 
 .notification img {
   height: 100%;
-  width: 120px;
+  width: 4rem;
   object-fit: cover;
 }
+
+.done {
+  pointer-events: none;
+  opacity: 0.4;
+
+  .notification {
+    border: none;
+  }
+  .notification-actions i {
+  border: none;
+  padding: 0;
+  }
+  i {
+    color: rgb(3, 155, 3);
+  }
+}
+

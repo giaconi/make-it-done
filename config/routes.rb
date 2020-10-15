@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 end
 
   get '/lists' => 'pages#lists', as: :user_root
+
+  # edit this route to allow page refresh and send to 404 or 500 in other cases
+  get '*path', to: 'pages#lists', via: :all
 end
