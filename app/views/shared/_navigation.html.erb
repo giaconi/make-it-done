@@ -14,8 +14,8 @@
         <li class="nav-item dropdown">
           <%= image_tag "https://avatar.oxro.io/avatar.svg?name=#{current_user.first_name}+#{current_user.last_name}&background=545454&color=fffffa", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right w-20px" aria-labelledby="navbarDropdown">
-            <%= link_to "<i class='fas fa-sign-out-alt'></i>" "  Sign out" .html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item hover-text-yelow" %>
-            <%= link_to "<i class='fas fa-user-alt'></i>" "  Edit profile" .html_safe, edit_user_registration_path, class: "dropdown-item hover-text-yelow" %>
+            <%= link_to "Sign out " "  <i class='fas fa-sign-out-alt'></i>"  .html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item hover-text-yelow" %>
+            <%= link_to "Edit account " "  <i class='fas fa-user-alt'></i>" .html_safe, edit_user_registration_path, class: "dropdown-item hover-text-yelow" %>
           </div>
         </li>
       <% else %>
