@@ -1,10 +1,10 @@
 <div class="container mt-5">
-<h2>Log in</h2>
+<h2>Click <span class="text-yellow-500">Try now</span> to test the app</h2>
 <div class="row">
-  <div class="col-md-6 col-lg-8">
-    <h4>      or use the following account to test the app. There's still stuff to add and to fix, 
-    some functionalities are on the stove, like: <span class="text-red-300">destroy</span> a list, and mark task as <span class="text-green-300">complete</span>, a pomodoro clock and some more....</h4>
-    <table class="table table-sm">
+  <div class="col-md-6 col-lg-8 mt-2">
+    <h4>There's still stuff to add and to fix, 
+    some functionalities are on the stove but the core is present -  organize your tasks in lists and keep track of what's do be done and what not.</h4>
+    <table class="table table-sm mt-5">
       <thead>
         <tr class="text-white">
           <th scope="col">Email</th>
@@ -23,12 +23,12 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "border shadow-sm rounded p-3 mb-3" } ) do |f| %>
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control", value: "a@b.com" %>
       </div>
 
       <div class="form-group">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", value: "strongpassword" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -39,7 +39,7 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.submit "Log in", class: "btn btn-outline-warning" %>
+        <%= f.submit "Try now", autofocus: true, class: "btn btn-warning" %>
       </div>
     <% end %>
 
