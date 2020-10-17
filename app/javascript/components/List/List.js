@@ -27,7 +27,7 @@ const List = (props) => {
         setListId(response.data.data.id)
       })
       .catch((response) => console.log(response))
-  }, [tasks.length]); //"here in this space it is the value for each time this value will be chamge, the whole useeffect will be triggered"
+  }, [tasks.length]);
 
   const handleChange = (e) => {
     // console.log('name:', e.target.name, 'value:', e.target.value)
@@ -74,7 +74,8 @@ const List = (props) => {
       console.log('tasks before splice:', tasks)
 
       // replace the found item with the updated item from response
-      setTasks(tasks.splice(index, 1, todo))
+      let updatedTasks = tasks.splice(index, 1, todo)
+      setTasks(updatedTasks)
       console.log('tasks after splice:', tasks)
     })
     .catch(response => {
