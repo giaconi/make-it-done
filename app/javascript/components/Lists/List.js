@@ -6,17 +6,20 @@ import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 const List = (props) => {
-  // const taskNumber = props.included;
-  // console.log(taskNumber);
-  // let countTaskNumber = Object.keys(taskNumber).length;
+  console.log(props);
+  console.log(props.attributes.relationships.tasks);
+
+  let countTaskNumber = Object.keys(props.attributes.relationships.tasks.data).length;
 
   return (
-    <Link to={"/lists/" + props.attributes.slug} className="text-decoration-none">
-      <div className="card text-white bg-dark mb-3" style={{float : 'max-width: 18rem'}}>
-        <div className="card-header">{props.attributes.title}</div>
+    <Link to={"/lists/" + props.attributes.attributes.slug} className="text-decoration-none">
+      <div className="card card-shadow text-white bg-dark mb-3" style={{float : 'max-width: 18rem'}}>
+        <div className="card-header">
+          <h5>{props.attributes.attributes.title}</h5>
+        </div>
         <div className="card-body">
-          <h5 className="card-title"> <strong>[add value]</strong> tasks in this list.</h5>
-          <p className="card-text text-yellow-300 hover:text-yellow-600">last added: <strong>[add value]</strong></p>
+          <p className="card-title"> <strong className="text-yellow-300">{countTaskNumber}</strong> tasks inside</p>
+          <p className="card-text">last added: <strong>[add value]</strong></p>
         </div>
       </div>
     </Link>

@@ -1,20 +1,30 @@
+.task {
+  position: relative;
+}
+
+.duration {
+  position: absolute;
+}
+
 .notification {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
   background: white;
   padding: 8px 16px;
-  border: 1px solid #ffde59;
+  border: 3px dashed #ffde59;
+  border-radius: 4px;
 }
 
 .notification .notification-content {
   flex-grow: 1;
-  padding: 0 14px;
+  padding: 0 20px;
 }
 
 .notification p {
   margin: 0;
   line-height: 1.4;
+  align-items: center;
 }
 
 .notification small {

@@ -51,14 +51,14 @@ const Lists = (props) => {
     return (
       <List 
         key={item.attributes.title}
-        attributes={item.attributes}
+        attributes={item}
       />
     )
   });
 
   return (
     <div className="container">
-      <div className="row justify-content-center mb-5">
+      <div className="row justify-content-center mb-4">
         <ListForm
           handleChange={handleChange}
           handleSubmit={handleSubmit}

@@ -11,6 +11,10 @@ const List = (props) => {
   const [list_id, setListId] = useState('');
   const [filteredTasks, setFilteredTasks] = useState([]);
 
+  // useEffect
+  // set one state in data(tasks) and then get from one source only and check the state only on that source - data, in this case fetch only tasks
+  const [data, setData] = useState()
+ 
   const slug = props.match.params.slug;
   const postUrl = `/api/v1/tasks`;
   const getUrl = `/api/v1/lists/${slug}`;
@@ -20,14 +24,15 @@ const List = (props) => {
     axios
       .get(getUrl)
       .then((response) => {
-        // console.log(response.data.included);
+        console.log(response.data);
         setlistName(response.data.data.attributes.title)
         setList(response.data.data.attributes)
         setTasks(response.data.included)
         setListId(response.data.data.id)
       })
       .catch((response) => console.log(response))
-  }, [tasks.length]);
+  }, []);
+// empty [] so it can run only once
 
   const handleChange = (e) => {
     // console.log('name:', e.target.name, 'value:', e.target.value)
@@ -56,7 +61,7 @@ const List = (props) => {
   };
   console.log('check state outside useEffect', tasks)
 
-
+// mark article as read comparison in edge
   const handleComplete = (e) => {
 
     axios.put(`/api/v1/tasks/${e}`, {
@@ -99,22 +104,25 @@ const List = (props) => {
           task={task}
         />
         </div>
-        {tasks.map((task) => {
-          return (
-              <div className={`${task.attributes.done ? "done" : "undone"}`} key={task.id}>
-              <div className="notification">
-                <img src={`https://avatar.oxro.io/avatar.svg?name=${task.attributes.duration}&background=545454&color=fffffa`}/>
-                <div className="notification-content">
-                  <p><small>{task.attributes.created_at}</small></p>
-                  <p>{task.attributes.description}</p>
-                </div>
-                <div className="notification-actions">
-                  <button onClick={() => handleComplete(task.id)}><i className="fas fa-check"></i></button>
-                </div>
-              </div> 
-              </div>          
-        );})}
-    </div>
+          ** // check for a run if list is empty no map - called short-circutry
+          {tasks.length && tasks.map((task) => {
+            return (
+                <div className={`task ${task.attributes.done ? "done" : "undone"}`} key={task.id}>
+                <div className="notification">
+                  <div className="duration rounded-full h-16 w-16 items-center bg-gray-400">
+                    <h5>{task.attributes.duration}</h5>
+                    <p>minutes</p>
+                  </div>
+                  <div className="notification-content text-center">
+                    <p>{task.attributes.description}</p>
+                  </div>
+                  <div className="notification-actions">
+                    <button onClick={() => handleComplete(task.id)}><i className="fas fa-check"></i></button>
+                  </div>
+                </div> 
+                </div>          
+            );})}
+        </div>
   );
 }
 
