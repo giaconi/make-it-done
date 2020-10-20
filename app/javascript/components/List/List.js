@@ -104,14 +104,13 @@ const List = (props) => {
           task={task}
         />
         </div>
-          ** // check for a run if list is empty no map - called short-circutry
           {tasks.length && tasks.map((task) => {
             return (
-                <div className={`task ${task.attributes.done ? "done" : "undone"}`} key={task.id}>
+                <div className={`task mb-4 ${task.attributes.done ? "done" : "undone"}`} key={task.id}>
                 <div className="notification">
-                  <div className="duration rounded-full h-16 w-16 items-center bg-gray-400">
-                    <h5>{task.attributes.duration}</h5>
-                    <p>minutes</p>
+                  <div className="duration">
+                    <h5 className="font-weight-bold mt-2">{task.attributes.duration}</h5>
+                    <p className="font-italic text-xs">minutes</p>
                   </div>
                   <div className="notification-content text-center">
                     <p>{task.attributes.description}</p>

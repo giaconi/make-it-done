@@ -1,24 +1,20 @@
 .task {
   position: relative;
-}
-
-.duration {
-  position: absolute;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .notification {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   background: white;
-  padding: 8px 16px;
-  border: 3px dashed #ffde59;
+  padding: 3px 10px;
+  border: 3px double #ffde59;
   border-radius: 4px;
 }
 
 .notification .notification-content {
   flex-grow: 1;
-  padding: 0 20px;
 }
 
 .notification p {
@@ -59,6 +55,7 @@
 
   .notification {
     border: none;
+    border-radius: 0;
   }
   .notification-actions i {
   border: none;
@@ -69,3 +66,13 @@
   }
 }
 
+.duration {
+  color: white;
+  background-color: #202528;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+}
