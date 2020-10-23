@@ -53,6 +53,10 @@
   pointer-events: none;
   opacity: 0.4;
 
+  .title {
+    text-decoration: line-through;
+  }
+
   .notification {
     border: none;
     border-radius: 0;
@@ -67,11 +71,11 @@
 }
 
 .duration {
-  color: white;
-  background-color: #202528;
+  color: whitesmoke;
+  background-color: #303633;
   border-radius: 50%;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   position: absolute;
   text-align: center;
   vertical-align: middle;

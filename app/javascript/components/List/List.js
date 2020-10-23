@@ -9,12 +9,8 @@ const List = (props) => {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState([]);
   const [list_id, setListId] = useState('');
-  const [filteredTasks, setFilteredTasks] = useState([]);
+  const [taskDone, setTaskDone] = useState(false)
 
-  // useEffect
-  // set one state in data(tasks) and then get from one source only and check the state only on that source - data, in this case fetch only tasks
-  const [data, setData] = useState()
- 
   const slug = props.match.params.slug;
   const postUrl = `/api/v1/tasks`;
   const getUrl = `/api/v1/lists/${slug}`;
@@ -22,71 +18,68 @@ const List = (props) => {
   useEffect(() => {
     
     axios
-      .get(getUrl)
-      .then((response) => {
-        console.log(response.data);
-        setlistName(response.data.data.attributes.title)
-        setList(response.data.data.attributes)
-        setTasks(response.data.included)
-        setListId(response.data.data.id)
-      })
-      .catch((response) => console.log(response))
-  }, []);
-// empty [] so it can run only once
-
-  const handleChange = (e) => {
-    // console.log('name:', e.target.name, 'value:', e.target.value)
-    setTask(Object.assign({}, task, {[e.target.name]: e.target.value, list_id}))
-    // console.log('task:', task, list_id)
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    axios.post(postUrl, {
-      task,
-      list_id
+    .get(getUrl)
+    .then((response) => {
+      // console.log(response.data.included);
+      setlistName(response.data.data.attributes.title)
+      setList(response.data.data.attributes)
+      setTasks(response.data.included)
+      setListId(response.data.data.id)
     })
-    .then(response => {
-      // console.log('response after insert new task', response);
-      const taskItem = response.data.data.attributes;
-      setTasks([...tasks, {attributes: taskItem}]); 
-      // console.log(task)
-      setTask({description: '', duration: ''})
-      console.log('set state:', tasks)
-    })
-    .catch(response => {
-      console.log(response);
-    });
-  };
-  console.log('check state outside useEffect', tasks)
+    .catch((response) => console.log(response))
+}, [tasks.length, task]); //"here in this space it is the value for each time this value will be chamge, the whole useeffect will be triggered"
 
-// mark article as read comparison in edge
-  const handleComplete = (e) => {
+const handleChange = (e) => {
+  // console.log('name:', e.target.name, 'value:', e.target.value)
+  setTask(Object.assign({}, task, {[e.target.name]: e.target.value, list_id}))
+  // console.log('task:', task, list_id)
+};
 
-    axios.put(`/api/v1/tasks/${e}`, {
-     id: e,
-     done: true
-   })
-    .then(response => {
-      console.log('response after update', response.data.data.attributes)
-      // assign response to a variable
-      let todo = response.data.data.attributes;
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-      // find and assign here the item from response in the initial state
-      const index = tasks.find(element => element.id === e);
-      console.log('the found index:', index)
-      console.log('tasks before splice:', tasks)
+  axios.post(postUrl, {
+    task,
+    list_id
+  })
+  .then(response => {
+    console.log('response after insert new task:', response);
+    // const taskItem = response.data.data.attributes;
+    // setTasks([...tasks, {attributes: taskItem}]); 
+    // // console.log(task)
+    setTask({description: '', duration: ''})
+    tasks.push(response.data.data)
+    console.log('set state after submit:', tasks)
+  })
+  .catch(response => {
+    console.log(response);
+  });
+};
 
-      // replace the found item with the updated item from response
-      let updatedTasks = tasks.splice(index, 1, todo)
-      setTasks(updatedTasks)
-      console.log('tasks after splice:', tasks)
-    })
-    .catch(response => {
-      console.log(response);
-    });
-  }
+const handleComplete = (e) => {
+
+  axios.put(`/api/v1/tasks/${e}`, {
+   id: e,
+   done: true
+ })
+  .then(response => {
+    console.log('response after update', response.data.data.attributes)
+    // assign response to a variable
+    let todo = response.data.data.attributes;
+
+    // find and assign here the item from response in the initial state
+    const index = tasks.find(element => element.id === e);
+    console.log('the found index:', index)
+    console.log('tasks before splice:', tasks)
+
+    // replace the found item with the updated item from response
+    setTasks(tasks.splice(index, 1, todo))
+    console.log('tasks after splice:', tasks)
+  })
+  .catch(response => {
+    console.log(response);
+  });
+}
 
   return (
     <div className="container">
@@ -104,15 +97,15 @@ const List = (props) => {
           task={task}
         />
         </div>
-          {tasks.length && tasks.map((task) => {
+          {tasks && tasks.map((task) => {
             return (
                 <div className={`task mb-4 ${task.attributes.done ? "done" : "undone"}`} key={task.id}>
                 <div className="notification">
                   <div className="duration">
                     <h5 className="font-weight-bold mt-2">{task.attributes.duration}</h5>
-                    <p className="font-italic text-xs">minutes</p>
+                    <p className="font-italic text-xs">min</p>
                   </div>
-                  <div className="notification-content text-center">
+                  <div className="title notification-content text-center">
                     <p>{task.attributes.description}</p>
                   </div>
                   <div className="notification-actions">

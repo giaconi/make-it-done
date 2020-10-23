@@ -65,7 +65,7 @@ const Lists = (props) => {
           list={list}
         />
       </div>
-      <div className="card-columns">
+      <div className="mt-3 card-columns">
         
          {grid}
 

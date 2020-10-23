@@ -13,13 +13,13 @@ const List = (props) => {
 
   return (
     <Link to={"/lists/" + props.attributes.attributes.slug} className="text-decoration-none">
-      <div className="card card-shadow text-white bg-dark mb-3" style={{float : 'max-width: 18rem'}}>
+      <div className="card card-shadow text-white bg-dark mb-3" style={{float : 'max-width: 14rem'}}>
         <div className="card-header">
           <h5>{props.attributes.attributes.title}</h5>
         </div>
         <div className="card-body">
-          <p className="card-title"> <strong className="text-yellow-300">{countTaskNumber}</strong> tasks inside</p>
-          <p className="card-text">last added: <strong>[add value]</strong></p>
+          <p className="card-title text-right text-gray-200"> tasks inside <strong className="text-yellow-300">{countTaskNumber}</strong></p>
+          <p className="card-text text-gray-400">last added: <strong>[add value]</strong></p>
         </div>
       </div>
     </Link>
