@@ -2,7 +2,7 @@ import React from 'react';
 
 const TaskForm = (props) => {
   return (
-      <form className="form-row mt-2å mb-3" onSubmit={props.handleSubmit}>
+      <form className="form-row mt-2 mb-3" onSubmit={props.handleSubmit}>
         <div className="form-group col-md-2">
           <input className="form-control" onChange={props.handleChange} value={props.task.duration || ''} type="number" name="duration" placeholder="duration"/>
         </div>

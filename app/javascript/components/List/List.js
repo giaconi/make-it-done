@@ -27,7 +27,7 @@ const List = (props) => {
       setListId(response.data.data.id)
     })
     .catch((response) => console.log(response))
-}, [tasks.length, task]); //"here in this space it is the value for each time this value will be chamge, the whole useeffect will be triggered"
+}, [tasks.length, task]);
 
 const handleChange = (e) => {
   // console.log('name:', e.target.name, 'value:', e.target.value)
