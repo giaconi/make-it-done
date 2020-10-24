@@ -97,23 +97,25 @@ const List = (props) => {
           attributes={list}
           task={task}
         />
+               </div>
+          {tasks && tasks.map((task) => {
+            return (
+                <div className={`task mb-4 ${task.attributes.done ? "done" : "undone"}`} key={task.id}>
+                <div className="notification">
+                  <div className="duration">
+                    <h5 className="font-weight-bold mt-2">{task.attributes.duration}</h5>
+                    <p className="font-italic text-xs">min</p>
+                  </div>
+                  <div className="title notification-content text-center">
+                    <p>{task.attributes.description}</p>
+                  </div>
+                  <div className="notification-actions">
+                    <button onClick={() => handleComplete(task.id)}><i className="fas fa-check"></i></button>
+                  </div>
+                </div> 
+                </div>          
+            );})}
         </div>
-        {tasks.map((task) => {
-          return (
-              <div className={`${task.attributes.done ? "done" : "undone"}`} key={task.id}>
-              <div className="notification">
-                <img src={`https://avatar.oxro.io/avatar.svg?name=${task.attributes.duration}&background=545454&color=fffffa`}/>
-                <div className="notification-content">
-                  <p><small>{task.attributes.created_at}</small></p>
-                  <p>{task.attributes.description}</p>
-                </div>
-                <div className="notification-actions">
-                  <button onClick={() => handleComplete(task.id)}><i className="fas fa-check"></i></button>
-                </div>
-              </div> 
-              </div>          
-        );})}
-    </div>
   );
 }
 

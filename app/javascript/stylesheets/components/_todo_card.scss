@@ -1,20 +1,26 @@
+.task {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .notification {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   background: white;
-  padding: 8px 16px;
-  border: 1px solid #ffde59;
+  padding: 3px 10px;
+  border: 3px double #ffde59;
+  border-radius: 4px;
 }
 
 .notification .notification-content {
   flex-grow: 1;
-  padding: 0 14px;
 }
 
 .notification p {
   margin: 0;
   line-height: 1.4;
+  align-items: center;
 }
 
 .notification small {
@@ -22,7 +28,7 @@
   font-weight: bold;
 }
 .notification .notification-actions {
-  opacity: 0.5;
+  opacity: 0.2;
   display: flex;
   transition: ease .3s;
 }
@@ -47,15 +53,34 @@
   pointer-events: none;
   opacity: 0.4;
 
+  .title {
+    text-decoration: line-through;
+  }
+
   .notification {
     border: none;
+    border-radius: 0;
+  }
+
+  .notification-actions {
+    opacity: 1;
   }
   .notification-actions i {
-  border: none;
-  padding: 0;
+    border: none;
+    padding: 0;
   }
   i {
     color: rgb(3, 155, 3);
   }
 }
 
+.duration {
+  color: whitesmoke;
+  background-color: #303633;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+}

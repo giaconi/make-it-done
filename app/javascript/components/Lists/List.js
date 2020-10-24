@@ -12,11 +12,13 @@ const List = (props) => {
 
   return (
     <Link to={"/lists/" + props.attributes.slug} className="text-decoration-none">
-      <div className="card text-white bg-dark mb-3" style={{float : 'max-width: 18rem'}}>
-        <div className="card-header">{props.attributes.title}</div>
+      <div className="card card-shadow text-white bg-dark mb-3" style={{float : 'max-width: 14rem'}}>
+        <div className="card-header text-center">
+          <h5>{props.attributes.title}</h5>
+        </div>
         <div className="card-body">
-          <h5 className="card-title"> <strong>[add value]</strong> tasks in this list.</h5>
-          <p className="card-text text-yellow-300 hover:text-yellow-600">last added: <strong>[add value]</strong></p>
+          <p className="card-title text-right text-gray-200"> <strong className="text-yellow-300">[add value]</strong> tasks inside</p>
+          <p className="card-text text-gray-400">last added: <strong>[add value]</strong></p>
         </div>
       </div>
     </Link>
