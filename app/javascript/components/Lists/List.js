@@ -16,9 +16,15 @@ const List = (props) => {
         <div className="card-header text-center">
           <h5>{props.attributes.title}</h5>
         </div>
-        <div className="card-body">
-          <p className="card-title text-right text-gray-200"> <strong className="text-yellow-300">[add value]</strong> tasks inside</p>
-          <p className="card-text text-gray-400">last added: <strong>[add value]</strong></p>
+        <div className="card-bodyy m-1">
+          <div className="task-number">
+            <p className="card-title text-gray-200"> <strong className="text-yellow-300">[tasks quantity]</strong></p>
+            <p className="card-title text-gray-200"><i class="fas fa-table"></i></p>
+          </div>
+          <div className="text-right">
+            <p className="card-text text-gray-400"><i class="far fa-clock"></i></p>
+            <p className="card-text text-gray-400"><strong>[add value]</strong></p>
+          </div>
         </div>
       </div>
     </Link>

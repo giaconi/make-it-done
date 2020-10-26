@@ -1,4 +1,17 @@
 .card-shadow:hover {
   transform: scale(0.98);
   box-shadow: 0 10px 10px -12px rgba(245, 247, 139, 0.61);
+  transition: ease .3s;
+}
+
+.card-boddy {
+  position: relative;
+}
+
+.task-number {
+  position: absolute;
+}
+
+task-date {
+  position: fixed;
 }
